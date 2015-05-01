@@ -6,15 +6,17 @@ class FunksController < ApplicationController
   end
 
   def new
-  	#
+  	@user = @current_user
   	@funk = Funk.new
+    #byebug
   end
 
   def create
-  	
+  	@user = @current_user
   	funk_params = params.require(:funk).permit(:content)
-  	new_content = funk_params[:content]
-  	@funk = Funk.create(funk_params)
+    #byebug
+  	#new_content = funk_params[:content]
+  	@funk = @user.funks.create(funk_params) #this is one step way of ASSOCIATING and CREATING a new funk
 
   	redirect_to "/"
 

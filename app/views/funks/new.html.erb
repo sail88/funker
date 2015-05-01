@@ -1,6 +1,6 @@
 <h1> Funker Make Your Funk Page </h1>
 
-<%= form_for :funk, url: "/funks", method: "post" do |f| %>
+<%= form_for [@user, @funk], url: {action: "create"} do |f| %>
 <%= f.text_field :content, autofocus: true %>
 <%= f.submit "Get Funky" %>
 <% end %>

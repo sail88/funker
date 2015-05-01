@@ -9,12 +9,17 @@ class UsersController < ApplicationController
 
   def create
   	user_params = params.require(:user).permit(:username, :email, :password)
+  	#byebug
   	@funk = User.create(user_params)
-  	redirect_to "/"
+  	redirect_to "/login"
   end
 
   def show
-  	render text: "I WILL BE AMAZED"
+  	@user = @current_user
+  	#byebug
+  	#@user = User.find(params[:id])
+  
+
   end
 
 end
