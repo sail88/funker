@@ -1,0 +1,2 @@
+module FunksHelper
+end
