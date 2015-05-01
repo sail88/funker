@@ -4,6 +4,7 @@ class CreateFunks < ActiveRecord::Migration
       t.string :content, :limit => 141
 
       t.timestamps null: false
+
     end
   end
 end
