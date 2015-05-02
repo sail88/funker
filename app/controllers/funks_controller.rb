@@ -33,7 +33,38 @@ class FunksController < ApplicationController
   end
 
   def show
-  	#
+  	@current_user = current_user
+    who_is_asking = params[:user_id].to_i
+    funk_id = params[:id].to_i
+    who_is_funk_owner = Funk.find(funk_id).user_id
+
+    if (@current_user.id == who_is_asking) and (@current_user.id == who_is_funk_owner)  #|| are_you_following(whose_funk)
+      @funk = Funk.find(funk_id)
+    else
+      redirect_to "/users/#{who_is_asking}/funks"
+    end
+  end
+
+  def edit
+    @current_user = current_user
+    @user = @current_user
+    who_is_asking = params[:user_id].to_i
+    funk_id = params[:id].to_i
+    who_is_funk_owner = Funk.find(funk_id).user_id
+
+    if (@current_user.id == who_is_asking) and (@current_user.id == who_is_funk_owner)  #ONLY FUNK OWNER CAN EDIT
+      @funk = Funk.find(funk_id)
+    else
+      redirect_to "/users/#{who_is_asking}/funks"
+    end
+  end
+
+  def update
+    funk_params = params.require(:funk).permit(:content)
+    #@funk.update(funk_params)
+    #this should have worked per
+    # https://github.com/sf-wdi-17/notes/blob/master/lectures/week-07/_3_wednesday/dawn/prepped/authors_books_app/app/controllers/books_controller.rb
+    redirect_to [@user]
   end
 
   def destroy
