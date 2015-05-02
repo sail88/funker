@@ -4,12 +4,13 @@ class FunksController < ApplicationController
     logged_in?
     # show all the Funks of the user whose id is in the URL
     whose_funks = params[:user_id].to_i
+    @user = current_user
     
     # NEED TO CHECK THAT CURRENT USER HAS ACCESS -- either is the same user or a follower
-    if whose_funks == current_user.id
+    if whose_funks == @user.id #|| are_you_following(whose_funks) ADD QUERY ABOUT WHETHER YOU ARE FOLLOWING THIS PERSON, ONCE WE HAVE THAT INFO
       @funks = Funk.where({user_id: session[:user_id]})
     else
-      redirect_to "/login"
+      redirect_to "/users/#{whose_funks}" #Go to your own page
     end 
   end
 

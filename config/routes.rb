@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "funks#index"
+  root to: "users#index"
 
   get "/login", to: "sessions#new"
 
