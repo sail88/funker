@@ -6,6 +6,22 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<header>
+Welcome to <a href="/"><b>Funker</b></a>!
+
+<% if current_user == nil %>
+	  <a href="/login">Login</a>
+	  <a href="/users/new">Sign up</a>
+	<% else %>
+	  <div> Hello <%= current_user.username %></div>
+	  <%= form_for :user, url: "/logout", method: "delete" do |f| %>
+ 		 <div>
+    	 <%= f.submit "Logout" %>
+ 		 </div>
+		<% end %>
+	<% end %>
+
+</header>
 <body>
 
 <%= yield %>

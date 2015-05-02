@@ -1,7 +1,11 @@
 <h1> Funker Index Page </h1>
 
+<h2>Here are all your Funks</h2>
+
 <% @funks.each do |one_funk| %>
-	<div>
-	<%= one_funk.content%>
-	</div>
+	<ul>
+<li>	<%= one_funk.content%>
+	<%= one_funk.created_at%> </li>
+
+	</ul>
 <% end %>
