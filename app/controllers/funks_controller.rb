@@ -25,7 +25,9 @@ class FunksController < ApplicationController
     logged_in?
   	@user = current_user
   	funk_params = params.require(:funk).permit(:content)
-    #byebug
+    funk_params[:latitude] = session[:lat]
+    funk_params[:longitude] = session[:long]
+    byebug
   	#new_content = funk_params[:content]
   	@funk = @user.funks.create(funk_params) #this is one step way of ASSOCIATING and CREATING a new funk
 

@@ -3,11 +3,12 @@
 <h2>Here are all your Funks</h2>
 
 <% @funks.each do |one_funk| %>
+	<h2><%= one_funk.content%></h2>
 	<ul>
-<li>	<h2><%= one_funk.content%></h2>
-	<%= one_funk.created_at%> </li>
-
-
+	<li>Time: <%= one_funk.created_at%> </li>
+	<li>Latitude: <%= one_funk.latitude%></li>
+	<li>Longitude: <%= one_funk.longitude%></li>
+	<li><a href="http://maps.google.com/?q=<%= one_funk.latitude%>,<%= one_funk.longitude%>">See the Funky Spot</a></li>
 	</ul>
 <% end %>
 

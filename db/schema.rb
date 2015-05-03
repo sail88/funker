@@ -11,16 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501193003) do
+ActiveRecord::Schema.define(version: 20150503212347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "funks", force: :cascade do |t|
     t.string   "content",    limit: 141
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                                                     null: false
+    t.datetime "updated_at",                                                     null: false
     t.integer  "user_id"
+    t.decimal  "latitude",               precision: 15, scale: 10, default: 0.0
+    t.decimal  "longitude",              precision: 15, scale: 10, default: 0.0
+  end
+
+  create_table "spatial_ref_sys", primary_key: "srid", force: :cascade do |t|
+    t.string  "auth_name", limit: 256
+    t.integer "auth_srid"
+    t.string  "srtext",    limit: 2048
+    t.string  "proj4text", limit: 2048
   end
 
   create_table "users", force: :cascade do |t|

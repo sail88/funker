@@ -24,7 +24,7 @@
  };
 
 function makeItRed() {
- 	this.backgroundColor=purple;
+ 	this.style.backgroundColor='red';
 }
 
 // getLocation();
