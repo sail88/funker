@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :funks
+	has_many :followers
 
 	has_secure_password
 

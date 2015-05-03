@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def start
+    logout
   end
 
   def find
@@ -7,7 +8,7 @@ class SessionsController < ApplicationController
     #longitude = params[:long].to_f
     session[:lat] = params[:lat].to_f
     session[:long] = params[:long].to_f
-    redirect_to users_path
+    redirect_to "/welcome"
   end
 
   def new

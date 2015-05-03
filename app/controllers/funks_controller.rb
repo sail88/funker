@@ -18,7 +18,6 @@ class FunksController < ApplicationController
     logged_in?
   	@user = current_user
   	@funk = Funk.new
-    #byebug
   end
 
   def create
@@ -27,11 +26,10 @@ class FunksController < ApplicationController
   	funk_params = params.require(:funk).permit(:content)
     funk_params[:latitude] = session[:lat]
     funk_params[:longitude] = session[:long]
-    byebug
-  	#new_content = funk_params[:content]
+    #byebug
   	@funk = @user.funks.create(funk_params) #this is one step way of ASSOCIATING and CREATING a new funk
 
-  	redirect_to "/"
+  	redirect_to user_path(@user.id)
   end
 
   def show

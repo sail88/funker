@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def index
-  	logout
     @users = User.all
   end
 
