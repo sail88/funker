@@ -2,6 +2,15 @@ class SessionsController < ApplicationController
   def start
   end
 
+  def find
+    latitude = params[:lat].to_f
+    longitude = params[:long].to_f
+    session[:lat] = latitude
+    session[:long] = longitude
+    byebug
+    redirect_to users_path
+  end
+
   def new
   end
 

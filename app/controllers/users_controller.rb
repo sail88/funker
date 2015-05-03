@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def create
   	user_params = params.require(:user).permit(:username, :email, :password)
-  	@funk = User.create(user_params)
+  	@user = User.create(user_params)
   	redirect_to "/login"
   end
 

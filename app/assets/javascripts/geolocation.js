@@ -1,14 +1,13 @@
  function showLocation(position) {
 	    var latitude = position.coords.latitude;
 	    var longitude = position.coords.longitude;
-	    console.log("Latitude",latitude);
-	    alert("Latitude : " + latitude + " Longitude: " + longitude);
-	    window.location = "/users/?lat="+latitude+"+?lon="+longitude;
+	    //alert("Latitude : " + latitude + " Longitude: " + longitude);
+	    window.location = "/position/?lat="+latitude+"&long="+longitude;
 	 }
 
  function errorHandler(err) {
     if(err.code == 1) {
-       alert("Error: Access is denied!");
+       alert("Error: Geoposition access is denied!");
     }else if( err.code == 2) {
        alert("Error: Position is unavailable!");
     }

@@ -4,8 +4,12 @@
 
 <% @funks.each do |one_funk| %>
 	<ul>
-<li>	<%= one_funk.content%>
+<li>	<h2><%= one_funk.content%></h2>
 	<%= one_funk.created_at%> </li>
+
 
 	</ul>
 <% end %>
+
+	Current location:
+	<%= session[:lat]%> <%= session[:long]%>
