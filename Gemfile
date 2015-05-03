@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# use 'spatial_adapter' for GIS info -- along with PostGIS installed as PostgresQL extension
+#gem 'spatial_adapter'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

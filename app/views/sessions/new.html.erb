@@ -2,6 +2,8 @@
 
 <p>Please enter...</p>
 
+
+
 <%= form_for :user, url: "/sessions", method: "post" do |f| %>
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: name %>
